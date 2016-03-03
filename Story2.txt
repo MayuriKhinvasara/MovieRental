@@ -1,0 +1,7 @@
+As a owner of movie library
+I want to charge differently for BluRay movies
+So that I can sustainably get more BluRay dics
+
+Expectation:
+Charge for BluRay movies is 4/day
+Frequent renter points is 3
