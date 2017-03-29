@@ -1,32 +1,30 @@
 package com.thoughtworks.movierental;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 class Customer {
-  private String _name;
-  private Vector _rentals = new Vector();
+  private String name;
+  private List<Rental> rentals = new ArrayList<>();
 
   public Customer(String name) {
-    _name = name;
+    this.name = name;
   }
 
   public void addRental(Rental arg) {
-    _rentals.addElement(arg);
+    rentals.add(arg);
   }
 
   public String getName() {
-    return _name;
+    return name;
   }
 
   public String statement() {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    Enumeration rentals = _rentals.elements();
     String result = "Rental Record for " + getName() + "\n";
-    while (rentals.hasMoreElements()) {
+    for (Rental each : rentals) {
       double thisAmount = 0;
-      Rental each = (Rental) rentals.nextElement();
       //determine amounts for each line
       switch (each.getMovie().getPriceCode()) {
         case Movie.REGULAR:
@@ -55,6 +53,7 @@ class Customer {
           String.valueOf(thisAmount) + "\n";
       totalAmount += thisAmount;
     }
+
     //add footer lines result
     result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
     result += "You earned " + String.valueOf(frequentRenterPoints)

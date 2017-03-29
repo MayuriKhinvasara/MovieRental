@@ -1,5 +1,5 @@
 As a customer
-Would like to view HTML statement 
+I would like to view HTML statement
 So that I can view it in my browser
 
 Expected Format:
